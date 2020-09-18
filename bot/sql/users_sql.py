@@ -37,7 +37,7 @@ def add_user_to_db(chat_id, f_name, usname):
     SESSION.commit()
 
 def check_user_in_db(chat_id):
-    r = SESSION.query(Users).filter_by(chat_id=chat_id).first()
+    r = SESSION.query(Users).filter_by(chat_id=chat_id).all()
     if r == []:
         pp = False
     else:
