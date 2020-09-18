@@ -3,6 +3,8 @@
 from .get_config import get_config
 
 
+API_HASH = get_config("API_HASH", should_prompt=True)
+APP_ID = get_config("APP_ID", should_prompt=True)
 TG_BOT_TOKEN = get_config("TG_BOT_TOKEN", should_prompt=True)
 # array to store the channel ID who are authorized to use the bot
 AUTH_USERS = list(set(
