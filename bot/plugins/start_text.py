@@ -30,7 +30,7 @@ async def num_start_message(client: Client, message: Message):
         quote=True
     )
     q = check_user_in_db(message.from_user.id)
-    if q == True:
+    if q == False:
         add_user_to_db(
             message.from_user.id,
             message.from_user.first_name,
