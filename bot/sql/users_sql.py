@@ -40,6 +40,6 @@ def add_user_to_db(chat_id, f_name, usname):
 def check_user_in_db(chat_id):
     r = SESSION.query(Users).filter_by(chat_id=chat_id).first()
     if r == []:
-        return False
+        pp = False
     else:
-        return True
+        pp = True
