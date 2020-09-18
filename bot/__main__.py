@@ -12,6 +12,8 @@ from . import (
 if __name__ == "__main__":
     app = Client(
         ":memory:",
+        api_hash=API_HASH,
+        api_id=APP_ID
         bot_token=TG_BOT_TOKEN,
         plugins=dict(
             root="bot/plugins"
