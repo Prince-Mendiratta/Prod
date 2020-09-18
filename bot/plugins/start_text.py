@@ -23,14 +23,13 @@ from sqlalchemy import func
     filters.command("start"),
     group=3
 )
-async def num_start_message(_, message: Message):
+async def num_start_message(client: Client, message: Message):
     START_OTHER_USERS_TEXT = """⭕ Hello, {}! To get started, Send me any the name of the APK that you want MODDED. I will perform a search in moddingunited.xyz for you & give you the results quickly..\n\n⚠️ Make sure you Enter the name of the app correctly with no spelling mistakes 😁\n\nFor more info, type /help!""".format(message.from_user.first_name)
     await message.reply_text(
         START_OTHER_USERS_TEXT,
         quote=True
     )
     q = check_user_in_db(message.from_user.id)
-    print(q)
     if q == False:
         add_user_to_db(
             message.from_user.id,
@@ -38,9 +37,9 @@ async def num_start_message(_, message: Message):
             message.from_user.username
         )
         rows = SESSION.query(func.count(Users.chat_id)).scalar()
-        SESSION.close()
-        await client.send_message(chat_id=742506768, text="🆕 New User!\nTotal: {}\nName: {}".format(rows,message.from_user.first_name))
+        await client.send_message(chat_id=AUTH_USERS, text="🆕 New User!\nTotal: {}\nName: {}".format(rows,message.from_user.first_name))
         print("🆕 New User!\nTotal: {}\nName: {}".format(rows,message.from_user.first_name))
+        SESSION.close()
     else:
         print('User in DB.')
         SESSION.close()
