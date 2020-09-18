@@ -5,7 +5,7 @@ from pyrogram import (
 from pyrogram.types import (
     Message
 )
-from pyrogram.errors.exceptions import UserIsBlocked, CHAT_WRITE_FORBIDDEN, CHAT_SEND_MEDIA_FORBIDDEN
+from pyrogram.errors.exceptions import UserIsBlocked, ChatWriteForbidden, ChatSendMediaForbidden
 from bot.plugins.request import get_mod
 
 
