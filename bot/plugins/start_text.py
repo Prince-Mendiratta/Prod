@@ -28,7 +28,7 @@ async def num_start_message(_, message: Message):
     )
     q = check_user_in_db(message.from_user.id)
     print(q)
-    if pp == False:
+    if q == True:
         add_user_to_db(
             message.from_user.id,
             message.from_user.first_name,
