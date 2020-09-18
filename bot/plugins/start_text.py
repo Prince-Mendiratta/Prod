@@ -38,8 +38,8 @@ async def num_start_message(client: Client, message: Message):
         )
         rows = SESSION.query(func.count(Users.chat_id)).scalar()
         print(rows)
-        await client.send_message(chat_id=AUTH_USERS, text="🆕 New User!\nTotal: {}\nName: {}".format(rows[0],message.from_user.first_name))
-        print("🆕 New User!\nTotal: {}\nName: {}".format(rows[0],message.from_user.first_name))
+        await client.send_message(chat_id=AUTH_USERS, text="🆕 New User!\nTotal: {}\nName: {}".format(str(rows[0]+1),message.from_user.first_name))
+        print("🆕 New User!\nTotal: {}\nName: {}".format(str(rows[0]+1),message.from_user.first_name))
         SESSION.close()
     else:
         print('User in DB.')
