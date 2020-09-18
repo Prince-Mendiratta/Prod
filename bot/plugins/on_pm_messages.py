@@ -9,7 +9,6 @@ from bot import (
     AUTH_USERS,
 )
 from pyrogram.errors.exceptions import UserIsBlocked
-import telegram
 import datetime
 import requests
 from bs4 import BeautifulSoup
