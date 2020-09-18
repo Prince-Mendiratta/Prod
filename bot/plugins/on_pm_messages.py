@@ -24,11 +24,9 @@ async def on_pm_s(client: Client, message: Message):
     user_id = message.from_user.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
-    if not text == '/start' or '/help':
-        0+0
-    else:
-        await message.forward(-499255509)
+    if text != '/start':
         print("Got Query: ", text, " from: ", fnam)
+        await message.forward(-499255509)
         r = requests.get(f'https://moddingunited.xyz/?s={text}')
         soup = BeautifulSoup(r.content, 'html.parser')
         h1 = soup.find('h1')
@@ -46,3 +44,5 @@ async def on_pm_s(client: Client, message: Message):
                 await client.send_photo(chat_id=user_id, photo=thumb, caption=f"⭕️ Hey, I found the latest mod apk related to your search in Modding United.\n⏩ Title :{title}\n🔗 Link : {link}")
             except UserIsBlocked:
                 print("blocked")
+    else:
+        0+0
