@@ -43,4 +43,5 @@ def check_user_in_db(chat_id):
         pp = False
     else:
         pp = True
-    return pp
+    rows = SESSION.query(func.count(Users.chat_id)).scalar()
+    return pp, rows
