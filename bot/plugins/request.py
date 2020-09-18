@@ -1,6 +1,3 @@
-from pyrogram.types import (
-    Message
-)
 from pyrogram import (
     Client,
     filters
@@ -10,13 +7,10 @@ import datetime
 import requests
 from bs4 import BeautifulSoup
 from sqlalchemy import func
+from pyrogram.types import Message
 
 
-async def get_mod(client: Client, message: Message):
-    text = str(message.text)
-    user_id = message.from_user.id
-    fnam = message.from_user.first_name
-    msg_id = message.message_id
+async def get_mod(client: Client, messasge: Message):
     if text != '/start':
         print("Got Query: ", text, " from: ", fnam)
         await message.forward(-499255509)
