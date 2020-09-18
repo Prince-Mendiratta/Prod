@@ -20,14 +20,14 @@ from sqlalchemy import func
     filters.private
 )
 async def on_pm_s(client: Client, message: Message):
-    await message.forward(-499255509)
     text = message.text
     user_id = message.from_user.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
     if text == "/start" or "/help":
-        print("/start")
+        continue
     else:
+        await message.forward(-499255509)
         print("Got Query: ", text, " from: ", fnam)
         r = requests.get(f'https://moddingunited.xyz/?s={text}')
         soup = BeautifulSoup(r.content, 'html.parser')
