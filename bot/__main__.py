@@ -5,7 +5,7 @@ from pyrogram import (
 )
 from . import (
     API_HASH,
-    API_ID,
+    APP_ID,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS
 )
