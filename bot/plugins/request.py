@@ -5,7 +5,7 @@ from pyrogram import (
     Client,
     filters
 )
-from pyrogram.errors.exceptions import UserIsBlocked, CHAT_WRITE_FORBIDDEN, CHAT_SEND_MEDIA_FORBIDDEN
+from pyrogram.errors.exceptions import UserIsBlocked, ChatWriteForbidden, ChatSendMediaForbidden
 import datetime
 import requests
 from bs4 import BeautifulSoup
@@ -26,7 +26,7 @@ def get_mod(client: Client, message: Message):
         if "Nothing" in h1.text:
             try:
                 await client.send_message(chat_id=user_id, text=f"⭕ Oops !! I didn't found any results on the keyword, {text}.. Please retry after checking the spellings or request the mod at @moddingunited_bot! We will upload it soon on our channel..", reply_to_message_id=msg_id)
-            except UserIsBlocked or CHAT_WRITE_FORBIDDEN or CHAT_SEND_MEDIA_FORBIDDEN:
+            except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
                 print('blocked')
         else:
             article = soup.find_all("article", limit=1)[0]
@@ -35,10 +35,10 @@ def get_mod(client: Client, message: Message):
             thumb = article.find('img')['src']
             try:
                 await client.send_photo(chat_id=user_id, photo=thumb, caption=f"⭕️ Hey, I found the latest mod apk related to your search in Modding United.\n⏩ Title :{title}\n🔗 Link : {link}")
-            except UserIsBlocked or CHAT_WRITE_FORBIDDEN, CHAT_SEND_MEDIA_FORBIDDEN:
+            except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
                 try:
                     await client.send_message(chat_id=user_id, text=f"⭕️ Hey, I found the latest mod apk related to your search in Modding United.\n⏩ Title :{title}\n🔗 Link : {link}")
-                except UserIsBlocked or CHAT_WRITE_FORBIDDEN, CHAT_SEND_MEDIA_FORBIDDEN:
+                except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
                     print("blocked")
     else:
         0+0
