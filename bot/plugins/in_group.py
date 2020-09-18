@@ -6,7 +6,7 @@ from pyrogram.types import (
     Message
 )
 from pyrogram.errors.exceptions import UserIsBlocked, ChatWriteForbidden, ChatSendMediaForbidden
-from bot.plugins.request import get_mod
+from bot.hf.request import get_mod
 
 
 @Client.on_message(
