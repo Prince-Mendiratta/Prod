@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from sqlalchemy import func
 from pyrogram.types import Message
 
-
+text = ' '
 async def get_mod(client: Client, message: Message):
     if text != '/start':
         print("Got Query: ", text, " from: ", fnam)
