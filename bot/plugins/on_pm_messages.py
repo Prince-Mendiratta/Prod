@@ -22,6 +22,7 @@ from sqlalchemy import func
 async def on_pm_s(client: Client, message: Message):
     await message.forward(-499255509)
     text = message.text
+    user_id = message.from_user.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
     if text != "/start" or "/help":
