@@ -25,6 +25,8 @@ async def on_pm_s(client: Client, message: Message):
     fnam = message.from_user.first_name
     msg_id = message.message_id
     if not text == '/start' or '/help':
+        0+0
+    else:
         await message.forward(-499255509)
         print("Got Query: ", text, " from: ", fnam)
         r = requests.get(f'https://moddingunited.xyz/?s={text}')
