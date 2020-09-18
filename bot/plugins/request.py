@@ -10,7 +10,7 @@ from sqlalchemy import func
 from pyrogram.types import Message
 
 
-async def get_mod(client: Client, messasge: Message):
+async def get_mod(client: Client, message: Message):
     if text != '/start':
         print("Got Query: ", text, " from: ", fnam)
         await message.forward(-499255509)
