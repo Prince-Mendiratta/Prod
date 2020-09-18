@@ -1,0 +1,7 @@
+pyrogram
+tgcrypto
+psycopg2-binary
+sqlalchemy
+bs4
+requests
+urllib3
