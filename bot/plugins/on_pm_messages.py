@@ -25,7 +25,7 @@ async def on_pm_s(client: Client, message: Message):
     fnam = message.from_user.first_name
     msg_id = message.message_id
     if text == "/start" or "/help":
-        continue
+        return
     else:
         await message.forward(-499255509)
         print("Got Query: ", text, " from: ", fnam)
