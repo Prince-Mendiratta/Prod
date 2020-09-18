@@ -16,7 +16,7 @@ from bot.plugins.request import get_mod
 )
 async def group_wala(client: Client, message: Message):
     intro = str(message.text)
-    cmds, query = text.split(' ', 1)
+    cmds, query = intro.split(' ', 1)
     text = str(query)
     user_id = message.from_user.id
     fnam = message.from_user.first_name
