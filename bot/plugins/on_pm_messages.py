@@ -25,7 +25,7 @@ async def on_pm_s(client: Client, message: Message):
     user_id = message.from_user.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
-    if text != "/start" or "/help":
+    if not text == "/start" or "/help":
         print("Got Query: ", text, " from: ", fnam)
         r = requests.get(f'https://moddingunited.xyz/?s={text}')
         soup = BeautifulSoup(r.content, 'html.parser')
