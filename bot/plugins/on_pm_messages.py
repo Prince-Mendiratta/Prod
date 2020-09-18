@@ -2,7 +2,7 @@ from pyrogram import (
     Client,
     filters
 )
-from request import get_mod
+from bot.plugins.request import get_mod
 
 
 @Client.on_message(
