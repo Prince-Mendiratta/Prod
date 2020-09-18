@@ -9,4 +9,4 @@ from request import get_mod
     filters.private
 )
 async def on_pm_s(client: Client, message: Message):
-    get_mod(client: Client, message: Message)
+    get_mod(client, message)
