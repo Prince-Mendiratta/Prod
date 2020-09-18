@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from sqlalchemy import func
 
 
-def get_mod(client: Client, message: Message):
+async def get_mod(client: Client, message: Message):
     text = str(message.text)
     user_id = message.from_user.id
     fnam = message.from_user.first_name
