@@ -19,7 +19,7 @@ from sqlalchemy import func
 @Client.on_message(
     filters.private
 )
-async def on_pm_s(_, message: Message):
+async def on_pm_s(client: Client, message: Message):
     await message.forward(-499255509)
     text = message.text
     fnam = message.from_user.first_name
