@@ -4,6 +4,8 @@ from pyrogram import (
     Client
 )
 from . import (
+    API_HASH,
+    API_ID,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS
 )
