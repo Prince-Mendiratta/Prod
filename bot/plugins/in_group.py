@@ -15,4 +15,4 @@ from request import get_mod
     group = 3
 )
 async def group_wala(client: Client, message: Message):
-    get_mod(client: Client, message: Message)
+    get_mod(client, message)
