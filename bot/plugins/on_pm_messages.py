@@ -15,4 +15,4 @@ async def on_pm_s(client: Client, message: Message):
     user_id = message.from_user.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
-    await get_mod(client, message, text, user_id, fnam, msg_id))
+    await get_mod(client, message, text, user_id, fnam, msg_id)
