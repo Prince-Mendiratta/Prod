@@ -20,11 +20,10 @@ from bot.sql import (
 from sqlalchemy import func
 
 @Client.on_message(
-    filters.command(["start", "start@ModdedApp_bot"]),
-    group=3
+    filters.command(["start", "start@ModdedApp_bot"])
 )
 async def num_start_message(client: Client, message: Message):
-    START_OTHER_USERS_TEXT = """⭕ Hello, {}! To get started, Send me any the name of the APK that you want MODDED. I will perform a search in moddingunited.xyz for you & give you the results quickly..\n\n⚠️ Make sure you Enter the name of the app correctly with no spelling mistakes 😁\n\nFor more info, type /help!""".format(message.from_user.first_name)
+    START_OTHER_USERS_TEXT = """⭕ Hello, {}! To get started, Send /mod and the name of the APK that you want MODDED. I will perform a search in moddingunited.xyz for you & give you the results quickly..\n\n⚠️ Make sure you Enter the name of the app correctly with no spelling mistakes 😁\n\n🥰You can also add me to your group and i'll send modded apps there!\nFor more info, type /help!""".format(message.from_user.first_name)
     await message.reply_text(
         START_OTHER_USERS_TEXT,
         quote=True
@@ -47,8 +46,7 @@ async def num_start_message(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command(["help", "help@ModdedApp_bot"]),
-    group=3
+    filters.command(["help", "help@ModdedApp_bot"])
 )
 async def nimda_start_message(_, message: Message):
     await message.reply_text(
