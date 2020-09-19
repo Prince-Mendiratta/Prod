@@ -18,7 +18,7 @@ async def on_pm_s(client: Client, message: Message):
     msg_id = message.message_id
     if text == "/start":
         num_start_message(client,message)
-    elif text == "/help":
+    elif text == "/help" or "/mod":
         nimda_start_message(_, message)
     else:
         await get_mod(client, message, text, user_id, fnam, msg_id)
