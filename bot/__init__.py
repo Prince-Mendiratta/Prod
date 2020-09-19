@@ -30,7 +30,7 @@ TG_BOT_WORKERS = int(get_config("TG_BOT_WORKERS", "4"))
 ONLINE_CHECK_START_TEXT = get_config(
     "ONLINE_CHECK_START_TEXT",
     (
-        """⭕ To use this bot, you just need to send /mod the name of the application that you want modded,<tt>For example, /mod picsart or /mod clash of clans</tt>\n We will run a query to search for the MODDED app at moddingunited.xyz & give you the search results.\n\n⚠️ If you cannot find the app you're looking for, it's possible we haven't uploaded it on the website yet. You can leave a message at @ModdingUnited_Bot and our team will have a look.\n\n🧐 In case of any issues, you can email us at info@moddingunited.xyz and we'll get back to you soon!"""
+        """⭕ To use this bot, you just need to send /mod the name of the application that you want modded,\nFor example, `/mod picsart` or `/mod clash of clans`\nWe will run a query to search for the MODDED app at moddingunited.xyz & give you the search results.\n\n⚠️ If you cannot find the app you're looking for, it's possible we haven't uploaded it on the website yet. You can leave a message at @ModdingUnited_Bot and our team will have a look.\n\n🧐 In case of any issues, you can email us at info@moddingunited.xyz and we'll get back to you soon!"""
     )
 )
 # IDEKWBYRW
