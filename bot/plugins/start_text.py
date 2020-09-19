@@ -20,8 +20,6 @@ from bot.sql import (
 from sqlalchemy import func
 
 @Client.on_message(
-    filters.private &
-    filters.group &
     filters.command(["start", "start@ModdedApp_bot"])
 )
 async def num_start_message(client: Client, message: Message):
