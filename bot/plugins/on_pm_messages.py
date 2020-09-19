@@ -4,6 +4,7 @@ from pyrogram import (
 )
 from bot.hf.request import get_mod
 from pyrogram.types import Message
+from bot.plugins.start_text import nimda_start_message, num_start_message
 
 
 
@@ -15,4 +16,9 @@ async def on_pm_s(client: Client, message: Message):
     user_id = message.from_user.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
-    await get_mod(client, message, text, user_id, fnam, msg_id)
+    if text == "/start":
+        num_start_message(client,message)
+    elif text == "/help":
+        nimda_start_message(_, message)
+    else:
+        await get_mod(client, message, text, user_id, fnam, msg_id)
