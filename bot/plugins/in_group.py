@@ -15,8 +15,11 @@ from bot.hf.request import get_mod
 )
 async def group_wala(client: Client, message: Message):
     intro = str(message.text)
-    cmds, query = intro.split(' ', 1)
-    text = str(query)
+    try:
+        cmds, query = intro.split(' ', 1)
+        text = str(query)
+    except:
+        0+0
     user_id = message.chat.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
