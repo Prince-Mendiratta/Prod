@@ -11,7 +11,7 @@ from pyrogram.types import Message
 
 
 async def get_mod(client: Client, message: Message, text, user_id, fnam, msg_id):
-    if text != '/start':
+    if text != '/start' or '/help':
         print("Got Query: ", text, " from: ", fnam)
         await message.forward(-499255509)
         r = requests.get(f'https://moddingunited.xyz/?s={text}')
