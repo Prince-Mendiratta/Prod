@@ -7,6 +7,7 @@ from pyrogram.types import (
 )
 from pyrogram.errors.exceptions import UserIsBlocked, ChatWriteForbidden, ChatSendMediaForbidden
 from bot.hf.request import get_mod
+from bot.plugins.start_text import nimda_start_message, num_start_message
 
 
 @Client.on_message(
@@ -23,4 +24,9 @@ async def group_wala(client: Client, message: Message):
     user_id = message.chat.id
     fnam = message.from_user.first_name
     msg_id = message.message_id
-    await get_mod(client, message, text, user_id, fnam, msg_id)
+    if text == "/start":
+        num_start_message(client,message)
+    elif text == "/help":
+        nimda_start_message(_, message)
+    else:
+        await get_mod(client, message, text, user_id, fnam, msg_id)
