@@ -19,14 +19,14 @@ async def group_wala(client: Client, message: Message):
     try:
         cmds, query = intro.split(' ', 1)
         text = str(query)
+        user_id = message.chat.id
+        fnam = message.from_user.first_name
+        msg_id = message.message_id
+        if text == "/start":
+            num_start_message(client,message)
+        elif text == "/help" or "/mod":
+            nimda_start_message(_, message)
+        else:
+            await get_mod(client, message, text, user_id, fnam, msg_id)
     except:
         0+0
-    user_id = message.chat.id
-    fnam = message.from_user.first_name
-    msg_id = message.message_id
-    if text == "/start":
-        num_start_message(client,message)
-    elif text == "/help":
-        nimda_start_message(_, message)
-    else:
-        await get_mod(client, message, text, user_id, fnam, msg_id)
