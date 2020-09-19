@@ -20,7 +20,7 @@ from bot.sql import (
 from sqlalchemy import func
 
 @Client.on_message(
-    filters.command("start"),
+    filters.command(["start", "start@ModdedApp_bot"]),
     group=3
 )
 async def num_start_message(client: Client, message: Message):
@@ -47,7 +47,7 @@ async def num_start_message(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("help"),
+    filters.command(["help", "help@ModdedApp_bot"]),
     group=3
 )
 async def nimda_start_message(_, message: Message):
