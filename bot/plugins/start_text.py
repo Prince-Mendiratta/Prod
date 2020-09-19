@@ -46,7 +46,7 @@ async def num_start_message(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command(["help", "help@ModdedApp_bot"])
+    filters.command(["help", "help@ModdedApp_bot", "mod@ModdedApp_Bot"])
 )
 async def nimda_start_message(_, message: Message):
     await message.reply_text(
