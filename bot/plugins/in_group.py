@@ -12,7 +12,6 @@ from bot.hf.request import get_mod
 @Client.on_message(
     filters.group &
     filters.command("mod", ["/", "!"]),
-    group = 3
 )
 async def group_wala(client: Client, message: Message):
     intro = str(message.text)
