@@ -22,11 +22,11 @@ async def group_wala(client: Client, message: Message):
         user_id = message.chat.id
         fnam = message.from_user.first_name
         msg_id = message.message_id
-        if text == "/start":
+        if text != "/start" or "/help":
+            await get_mod(client, message, text, user_id, fnam, msg_id)
+        elif text == "/start":
             await num_start_message(client,message)
         elif text == "/help":
             await nimda_start_message('a', message)
-        else:
-            await get_mod(client, message, text, user_id, fnam, msg_id)
     except:
         0+0
