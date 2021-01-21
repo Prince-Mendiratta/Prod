@@ -23,7 +23,7 @@ async def get_mod(client: Client, message: Message, text, user_id, fnam, msg_id)
             print('blocked')
     if r.status_code == 503:
         try:
-            await client.send_message(chat_id=user_id, text=f"⭕ Oops !! Regretfully, Our site is down right now.. Please visit https://moddingunited.xyz/?s={text} to find your app or try again later!\n\nWe Will be back soon🥰", reply_to_message_id=msg_id)
+            await client.send_message(chat_id=user_id, text=f"⭕ Oops !! Regretfully, Our site is down right now.. Please visit ->\n https://moddingunited.xyz/?s={text}\n to find your app or try again later!\n\nWe Will be back soon🥰", reply_to_message_id=msg_id)
         except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
             print('blocked')
     soup = BeautifulSoup(r.content, 'html.parser')
