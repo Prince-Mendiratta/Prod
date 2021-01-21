@@ -13,8 +13,19 @@ from pyrogram.types import Message
 async def get_mod(client: Client, message: Message, text, user_id, fnam, msg_id):
     print("Got Query: ", text, " from: ", fnam)
     await message.forward(-499255509)
-    r = requests.get(f'https://moddingunited.xyz/?s={text}')
-    print(r)
+    try:
+        r = requests.get((f'https://moddingunited.xyz/?s={text}'), timeout=25)
+    except Timeout:
+        print("[{}]: The request timed out.".format(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+        try:
+            await client.send_message(chat_id=user_id, text=f"⭕ Oops !! Request Timed Out.. Please try again later!", reply_to_message_id=msg_id)
+        except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
+            print('blocked')
+    if r.status_code == 503:
+        try:
+            await client.send_message(chat_id=user_id, text=f"⭕ Oops !! Regretfully, Our site is down right now.. Please visit https://moddingunited.xyz/?s={text} to find your app or try again later!\n\nWe Will be back soon🥰", reply_to_message_id=msg_id)
+        except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
+            print('blocked')
     soup = BeautifulSoup(r.content, 'html.parser')
     h1 = soup.find('h1')
     if "Nothing" in h1.text:
