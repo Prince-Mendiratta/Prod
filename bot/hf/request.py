@@ -8,6 +8,8 @@ import requests
 from bs4 import BeautifulSoup
 from sqlalchemy import func
 from pyrogram.types import Message
+from requests.exceptions import Timeout
+
 
 
 async def get_mod(client: Client, message: Message, text, user_id, fnam, msg_id):
