@@ -18,8 +18,6 @@ DB_URI = get_config(
     "DATABASE_URL",
     should_prompt=True
 )
-if DB_URI.startswith("postgres://"):
-    DB_URI.replace("postgres://", "postgresql://", 1)
 # Number of update workers to use.
 # 4 is the recommended (and default) amount,
 # but your experience may vary.
