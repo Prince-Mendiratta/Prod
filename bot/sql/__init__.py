@@ -8,6 +8,8 @@ from .. import DB_URI
 
 def start() -> scoped_session:
     """ returns SQLAlchemy ScopedSession """
+    if DB_URI.startswith("postgres://"):
+        DB_URI.replace("postgres://", "postgresql://", 1)
     engine = create_engine(DB_URI)
     BASE.metadata.bind = engine
     BASE.metadata.create_all(engine)
