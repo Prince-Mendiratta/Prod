@@ -37,6 +37,7 @@ async def get_mod(client: Client, message: Message, text, user_id, fnam, msg_id)
             print('blocked')
     else:
         article = soup.find_all("article", limit=1)[0]
+        print(article)
         link = article.find('a')['href']
         title = article.find('a')['title']
         thumb = article.find('img')['src']
