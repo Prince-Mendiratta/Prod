@@ -40,7 +40,10 @@ async def get_mod(client: Client, message: Message, text, user_id, fnam, msg_id)
         print(article)
         link = article.find('a')['href']
         title = article.find('a')['aria-label']
-        thumb = article.find('img')['src']
+        try:
+            thumb = article.find('img')['src']
+        except:
+            thumb = 'https://moddingunited.xyz/wp-content/uploads/2021/07/cropped-moddingunited-1.jpg'
         try:
             await client.send_photo(chat_id=user_id, photo=thumb, caption=f"⭕️ Hey, I found the latest mod apk related to your search in Modding United.\n⏩ Title :{title}\n🔗 Link : {link}")
         except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
