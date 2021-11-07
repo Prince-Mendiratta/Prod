@@ -29,8 +29,8 @@ async def get_mod(client: Client, message: Message, text, user_id, fnam, msg_id)
         except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
             print('blocked')
     soup = BeautifulSoup(r.content, 'html.parser')
-    h1 = soup.find('h2')
-    if "Nothing" in h1.text:
+    article = soup.find('article')
+    if article is None:
         try:
             await client.send_message(chat_id=user_id, text=f"⭕ Oops !! I didn't found any results on the keyword, {text}.. Please retry after checking the spellings or request the mod at @moddingunited_bot! We will upload it soon on our channel..", reply_to_message_id=msg_id)
         except UserIsBlocked or ChatWriteForbidden or ChatSendMediaForbidden:
